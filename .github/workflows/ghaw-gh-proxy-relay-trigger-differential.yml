@@ -1,0 +1,19 @@
+name: GHAW proxy POST relay differential
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  relay:
+    if: >-
+      github.event.issue.number == 1 &&
+      github.event.comment.body == 'RUN_GHAW_GH_PROXY_RELAY_POST_DIFFERENTIAL_20260919_9F1C8A72B64D30E5' &&
+      github.event.comment.user.login == 'masonghbb'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Complete bounded relay
+        run: echo 'bounded POST relay complete'
