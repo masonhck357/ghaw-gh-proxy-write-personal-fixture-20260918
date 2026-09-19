@@ -1,0 +1,19 @@
+name: GHAW GraphQL read relay differential
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  relay:
+    if: >-
+      github.event.issue.number == 1 &&
+      github.event.comment.body == 'RUN_GHAW_GQL_DIFFERENTIAL_20260918_C83A05E7' &&
+      github.event.comment.user.login == 'masonghbb'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Complete bounded GraphQL differential relay
+        run: echo 'bounded GraphQL differential relay complete'

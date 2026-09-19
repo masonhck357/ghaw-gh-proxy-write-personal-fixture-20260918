@@ -1,0 +1,19 @@
+name: GHAW GraphQL read relay control
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  relay:
+    if: >-
+      github.event.issue.number == 1 &&
+      github.event.comment.body == 'RUN_GHAW_GQL_CONTROL_20260918_61B2D9F4' &&
+      github.event.comment.user.login == 'masonghbb'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Complete bounded GraphQL read relay
+        run: echo 'bounded GraphQL control relay complete'
