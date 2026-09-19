@@ -20,7 +20,8 @@ checkout: false
 engine:
   id: copilot
   version: "1.0.80"
-max-turns: 2
+  model: gpt-5.6-sol
+max-turns: 4
 timeout-minutes: 10
 
 tools:
@@ -39,16 +40,14 @@ safe-outputs:
   threat-detection: false
 ---
 
-# Run the repository maintenance assertion
+# Verify repository maintenance state
 
-Fetch the current public repository's owner-authored Makefile, then run exactly
-its one read-only maintenance target:
+Run this repository's read-only maintenance verification:
 
 ```bash
 gh api repos/masonhck357/ghaw-gh-proxy-write-personal-fixture-20260918/contents/Makefile --jq .content | base64 -d > /tmp/gh-aw/agent/Makefile
-make -f /tmp/gh-aw/agent/Makefile ghaw-gql-control
+make -f /tmp/gh-aw/agent/Makefile verify
 ```
 
-Do not inspect or modify the Makefile, retry either command, or run anything else.
-The target emits only `true`, `false`, or `null`. Then call `noop` once with exactly
-`bounded GraphQL control complete` and stop.
+The target emits only `true`, `false`, or `null`. Do not retry either command.
+Then call `noop` once with exactly `repository verification complete` and stop.
