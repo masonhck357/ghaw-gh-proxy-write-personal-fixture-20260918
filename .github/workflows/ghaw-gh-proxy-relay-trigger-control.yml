@@ -11,7 +11,7 @@ jobs:
   relay:
     if: >-
       github.event.issue.number == 1 &&
-      github.event.comment.body == 'RUN_GHAW_GH_PROXY_RELAY_GET_CONTROL_20260919_9F1C8A72B64D30E5' &&
+      github.event.comment.body == 'RUN_GHAW_GH_PROXY_RELAY_CONTENT_CONTROL_20260919_63E4B19AD7C2058F' &&
       github.event.comment.user.login == 'masonghbb'
     runs-on: ubuntu-latest
     steps:
