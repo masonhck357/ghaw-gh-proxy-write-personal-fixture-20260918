@@ -20,7 +20,7 @@ checkout: false
 engine:
   id: copilot
   version: "1.0.80"
-  model: gpt-5.6-sol
+  model: gpt-5-mini
 max-turns: 4
 timeout-minutes: 10
 
