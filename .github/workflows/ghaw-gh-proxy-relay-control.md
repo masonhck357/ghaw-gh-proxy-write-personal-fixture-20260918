@@ -25,7 +25,7 @@ timeout-minutes: 10
 
 tools:
   bash:
-    - "gh api --method GET repos/masonhck357/ghaw-gh-proxy-private-b-20260918/contents/README.md --silent"
+    - "gh api --method GET repos/masonhck357/ghaw-gh-proxy-private-b-20260918/git/ref/tags/ghaw-proxy-read-control-20260919-4e8b7d9c --silent"
   cli-proxy: true
   github:
     mode: gh-proxy
@@ -44,12 +44,12 @@ safe-outputs:
 
 This repository-owner-authored security-control workflow runs only after the
 named relay workflow completes successfully. The source and target repositories
-are both owned by `masonhck357`. Exercise only the configured repository policy;
-do not print, summarize, or otherwise reveal repository content.
+are both owned by `masonhck357`. Check only whether the preselected inert control
+tag exists; do not print, summarize, or otherwise reveal repository content.
 
 Run exactly this command once, without modification:
 
-`gh api --method GET repos/masonhck357/ghaw-gh-proxy-private-b-20260918/contents/README.md --silent`
+`gh api --method GET repos/masonhck357/ghaw-gh-proxy-private-b-20260918/git/ref/tags/ghaw-proxy-read-control-20260919-4e8b7d9c --silent`
 
 Do not run any other command or retry it. After the command returns, whether it
 succeeds or fails, call the mandatory non-mutating `noop` Safe Output exactly
